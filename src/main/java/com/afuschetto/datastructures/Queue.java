@@ -1,5 +1,7 @@
 package com.afuschetto.datastructures;
 
+import java.util.NoSuchElementException;
+
 public class Queue<T> {
     private int size;
     private T dataArray[];
@@ -18,6 +20,7 @@ public class Queue<T> {
         if (isFull()) {
             throw new IndexOutOfBoundsException("Full queue");
         }
+
         front = (front + 1) % size;
         dataArray[front] = item;
         ++nItems;
@@ -25,8 +28,9 @@ public class Queue<T> {
 
     public T dequeue() {
         if (isEmpty()) {
-            throw new IndexOutOfBoundsException("Empty queue");
+            throw new NoSuchElementException("Empty queue");
         }
+
         rear = (rear + 1) % size;
         T item = dataArray[rear];
         --nItems;

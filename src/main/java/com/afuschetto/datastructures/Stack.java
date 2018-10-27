@@ -1,5 +1,7 @@
 package com.afuschetto.datastructures;
 
+import java.util.NoSuchElementException;
+
 public class Stack<T> {
     private int size;
     private T dataArray[];
@@ -15,21 +17,23 @@ public class Stack<T> {
         if (isFull()) {
             throw new IndexOutOfBoundsException("Full stack");
         }
+
         dataArray[++top] = item;
     }
 
     public T pop() {
         if (isEmpty()) {
-            throw new IndexOutOfBoundsException("Empty stack");
+            throw new NoSuchElementException("Empty stack");
         }
+
         return dataArray[top--];
     }
 
     public boolean isEmpty() {
-        return -1 == top;
+        return (-1 == top);
     }
 
     public boolean isFull() {
-        return (size - 1) == top;
+        return ((size - 1) == top);
     }
 }
