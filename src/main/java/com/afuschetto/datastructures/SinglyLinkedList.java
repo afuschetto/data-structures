@@ -2,14 +2,14 @@ package com.afuschetto.datastructures;
 
 import java.util.NoSuchElementException;
 
-public class SinglyLinkedList<T> {
-    private Node<T> first;
+public class SinglyLinkedList<E> {
+    private Node<E> first;
 
     public SinglyLinkedList() {
         first = null;
     }
 
-    public void addFirst(T item) {
+    public void addFirst(E item) {
         Node newNode = new Node();
         newNode.data = item;
         newNode.next = first;
@@ -17,7 +17,7 @@ public class SinglyLinkedList<T> {
         first = newNode;
     }
 
-    public void addLast(T item) {
+    public void addLast(E item) {
         Node newNode = new Node();
         newNode.data = item;
         newNode.next = null;
@@ -35,17 +35,17 @@ public class SinglyLinkedList<T> {
         }
     }
 
-    public T removeFirst() {
+    public E removeFirst() {
         if (isEmpty()) {
             throw new NoSuchElementException("Empty linked list");
         }
 
         Node firstNode = first;
         first = first.next;
-        return (T) firstNode.data;
+        return (E) firstNode.data;
     }
 
-    public T removeLast() {
+    public E removeLast() {
         if (isEmpty()) {
             throw new NoSuchElementException("Empty linked list");
         }
@@ -65,15 +65,15 @@ public class SinglyLinkedList<T> {
             // There are two or more nodes, then set the penultimate node as last
             prevNode.next = null;
         }
-        return (T) currNode.data;
+        return (E) currNode.data;
     }
 
     public boolean isEmpty() {
         return (null == first);
     }
 
-    private class Node<T> {
-        public T data;
+    private class Node<E> {
+        public E data;
         public Node next;
 
         public String toString() {

@@ -2,18 +2,18 @@ package com.afuschetto.datastructures;
 
 import java.util.NoSuchElementException;
 
-public class Stack<T> {
+public class Stack<E> {
     private int size;
-    private T dataArray[];
+    private E dataArray[];
     private int top;
 
     public Stack(int size) {
         this.size = size;
-        dataArray = (T[]) new Object[size];
+        dataArray = (E[]) new Object[size];
         top = -1;
     }
 
-    public void push(T item) {
+    public void push(E item) {
         if (isFull()) {
             throw new IndexOutOfBoundsException("Full stack");
         }
@@ -21,7 +21,7 @@ public class Stack<T> {
         dataArray[++top] = item;
     }
 
-    public T pop() {
+    public E pop() {
         if (isEmpty()) {
             throw new NoSuchElementException("Empty stack");
         }
