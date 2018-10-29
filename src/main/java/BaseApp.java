@@ -1,3 +1,4 @@
+import com.afuschetto.datastructures.CircularLinkedList;
 import com.afuschetto.datastructures.Queue;
 import com.afuschetto.datastructures.SinglyLinkedList;
 import com.afuschetto.datastructures.Stack;
@@ -7,6 +8,7 @@ public class BaseApp {
         testStack();
         testQueue();
         testSinglyLinkedList();
+        testCircularLinkedList();
     }
 
     private static void testStack() {
@@ -43,6 +45,21 @@ public class BaseApp {
         System.out.println("*** Test Singly Linked List ***");
 
         SinglyLinkedList myList = new SinglyLinkedList<Integer>();
+        myList.addLast(1);
+        myList.addLast(2);
+        myList.addLast(3);
+        myList.addLast(4);
+        myList.addLast(5);
+
+        while (!myList.isEmpty()) {
+            System.out.println(myList.removeLast());
+        }
+    }
+
+    static void testCircularLinkedList() {
+        System.out.println("*** Test Circular Linked List ***");
+
+        CircularLinkedList myList = new CircularLinkedList<Integer>();
         myList.addLast(1);
         myList.addLast(2);
         myList.addLast(3);
