@@ -3,20 +3,15 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class CircularLinkedList<E> {
-    private Node first;
-    private Node last;
-
-    public CircularLinkedList() {
-        first = null;
-        last = null;
-    }
+    private Node first = null;
+    private Node last = null;
 
     public void addFirst(E item) {
         Node newNode = new Node();
         newNode.data = item;
         newNode.next = first;
 
-        if (null == first) {
+        if (first == null) {
             last = newNode;
         }
         first = newNode;
@@ -42,7 +37,7 @@ public class CircularLinkedList<E> {
 
         Node firstNode = first;
         first = first.next;
-        if (null == first) {
+        if (first == null) {
             last = null;
         }
         return firstNode.data;
@@ -57,12 +52,12 @@ public class CircularLinkedList<E> {
         // Iterate until "prevNode" is the penultimate node and "currNode" the last one
         Node prevNode = null;
         Node currNode = first;
-        while (null != currNode.next) {
+        while (currNode.next != null) {
             prevNode = currNode;
             currNode = currNode.next;
         }
 
-        if (null == prevNode) {
+        if (prevNode == null) {
             // There is only one node, then empty the list
             first = null;
             last = null;

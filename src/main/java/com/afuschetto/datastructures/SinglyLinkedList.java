@@ -3,11 +3,7 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class SinglyLinkedList<E> {
-    private Node first;
-
-    public SinglyLinkedList() {
-        first = null;
-    }
+    private Node first = null;
 
     public void addFirst(E item) {
         Node newNode = new Node();
@@ -27,7 +23,7 @@ public class SinglyLinkedList<E> {
         } else {
             // Iterate until "currNode" is the last node
             Node currNode = first;
-            while (null != currNode.next) {
+            while (currNode.next != null) {
                 currNode = currNode.next;
             }
 
@@ -53,12 +49,12 @@ public class SinglyLinkedList<E> {
         // Iterate until "prevNode" is the penultimate node and "currNode" the last one
         Node prevNode = null;
         Node currNode = first;
-        while (null != currNode.next) {
+        while (currNode.next != null) {
             prevNode = currNode;
             currNode = currNode.next;
         }
 
-        if (null == prevNode) {
+        if (prevNode == null) {
             // There is only one node, then empty the list
             first = null;
         } else {

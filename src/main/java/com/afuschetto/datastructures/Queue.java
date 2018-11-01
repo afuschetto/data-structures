@@ -5,15 +5,13 @@ import java.util.NoSuchElementException;
 public class Queue<E> {
     private int size;
     private E dataArray[];
-    private int front;
-    private int rear;
-    private int nItems;
+    private int front = -1;
+    private int rear = -1;
+    private int nItems = 0;
 
     public Queue(int size) {
         this.size = size;
         dataArray = (E[]) new Object[size];
-        front = -1;
-        rear = -1;
     }
 
     public void enqueue(E item) {
@@ -38,10 +36,10 @@ public class Queue<E> {
     }
 
     public boolean isEmpty() {
-        return 0 == nItems;
+        return nItems == 0;
     }
 
     public boolean isFull() {
-        return size == nItems;
+        return nItems == size;
     }
 }

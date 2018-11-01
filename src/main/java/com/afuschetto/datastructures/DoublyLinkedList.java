@@ -3,13 +3,8 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class DoublyLinkedList<E> {
-    private Node first;
-    private Node last;
-
-    public DoublyLinkedList() {
-        first = null;
-        last = null;
-    }
+    private Node first = null;
+    private Node last = null;
 
     public void addFirst(E item) {
         Node newNode = new Node();
@@ -46,7 +41,7 @@ public class DoublyLinkedList<E> {
 
         Node firstNode = first;
         first = firstNode.next;
-        if (null != first) {
+        if (first != null) {
             first.previous = null;
         } else {
             last = null;
@@ -61,7 +56,7 @@ public class DoublyLinkedList<E> {
 
         Node lastNode = last;
         last = lastNode.previous;
-        if (null != last) {
+        if (last != null) {
             last.next = null;
         } else {
             first = null;
@@ -70,7 +65,7 @@ public class DoublyLinkedList<E> {
     }
 
     public boolean isEmpty() {
-        return null == first;
+        return first == null;
     }
 
     private class Node {

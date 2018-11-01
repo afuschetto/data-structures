@@ -5,12 +5,11 @@ import java.util.NoSuchElementException;
 public class Stack<E> {
     private int size;
     private E dataArray[];
-    private int top;
+    private int top = -1;
 
     public Stack(int size) {
         this.size = size;
         dataArray = (E[]) new Object[size];
-        top = -1;
     }
 
     public void push(E item) {
@@ -30,10 +29,10 @@ public class Stack<E> {
     }
 
     public boolean isEmpty() {
-        return -1 == top;
+        return top == -1;
     }
 
     public boolean isFull() {
-        return ((size - 1) == top);
+        return top == (size - 1);
     }
 }
