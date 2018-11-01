@@ -38,10 +38,10 @@ public class Queue<E> {
     }
 
     public boolean isEmpty() {
-        return (0 == nItems);
+        return 0 == nItems;
     }
 
     public boolean isFull() {
-        return (size == nItems);
+        return size == nItems;
     }
 }

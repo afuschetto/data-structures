@@ -3,8 +3,8 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class CircularLinkedList<E> {
-    private Node<E> first;
-    private Node<E> last;
+    private Node first;
+    private Node last;
 
     public CircularLinkedList() {
         first = null;
@@ -16,7 +16,7 @@ public class CircularLinkedList<E> {
         newNode.data = item;
         newNode.next = first;
 
-        if (isEmpty()) {
+        if (null == first) {
             last = newNode;
         }
         first = newNode;
@@ -42,10 +42,10 @@ public class CircularLinkedList<E> {
 
         Node firstNode = first;
         first = first.next;
-        if (isEmpty()) {
+        if (null == first) {
             last = null;
         }
-        return (E) firstNode.data;
+        return firstNode.data;
     }
 
     // The reference to the last node does not help to improve the computational cost
@@ -72,17 +72,18 @@ public class CircularLinkedList<E> {
             last = prevNode;
         }
 
-        return (E) currNode.data;
+        return currNode.data;
     }
 
     public boolean isEmpty() {
-        return (null == first);
+        return null == first;
     }
 
-    private class Node<E> {
-        public E data;
-        public Node next;
+    private class Node {
+        E data;
+        Node next;
 
+        @Override
         public String toString() {
             return data.toString();
         }

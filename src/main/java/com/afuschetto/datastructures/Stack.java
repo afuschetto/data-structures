@@ -30,7 +30,7 @@ public class Stack<E> {
     }
 
     public boolean isEmpty() {
-        return (-1 == top);
+        return -1 == top;
     }
 
     public boolean isFull() {
