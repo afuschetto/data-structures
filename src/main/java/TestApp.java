@@ -1,3 +1,4 @@
+import com.afuschetto.algorithms.BinarySearch;
 import com.afuschetto.algorithms.LinearSearch;
 import com.afuschetto.datastructures.*;
 
@@ -10,6 +11,7 @@ public class TestApp {
         testDoublyLinkedList();
 
         testLinearSearch();
+        testBinarySearch();
     }
 
     private static void testStack() {
@@ -144,5 +146,19 @@ public class TestApp {
 
         assert LinearSearch.search(array, 30) == 3;
         assert LinearSearch.search(array, 100) == -1;
+    }
+
+    private static void testBinarySearch() {
+        System.out.println(">> Algorithms >> Testing Binary Search (Iterative)...");
+
+        int[] array = {00, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+
+        assert BinarySearch.searchIteratively(array, 30) == 3;
+        assert BinarySearch.searchIteratively(array, 100) == -1;
+
+        System.out.println(">> Algorithms >> Testing Binary Search (Recursive)...");
+
+        assert BinarySearch.searchRecursively(array, 30) == 3;
+        assert BinarySearch.searchRecursively(array, 100) == -1;
     }
 }
