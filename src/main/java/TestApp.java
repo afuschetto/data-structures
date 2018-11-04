@@ -1,5 +1,5 @@
+import com.afuschetto.algorithms.LinearSearch;
 import com.afuschetto.datastructures.*;
-
 
 public class TestApp {
     public static void main(String args[]) {
@@ -8,10 +8,12 @@ public class TestApp {
         testSinglyLinkedList();
         testCircularLinkedList();
         testDoublyLinkedList();
+
+        testLinearSearch();
     }
 
     private static void testStack() {
-        System.out.println(">> Testing Stack...");
+        System.out.println(">> Data Structures >> Testing Stack...");
 
         Stack<Integer> myStack = new Stack<>(5);
         assert myStack.isEmpty();
@@ -27,16 +29,16 @@ public class TestApp {
         myStack.push(1);
 
         assert !myStack.isEmpty();
-        assert 1 == myStack.pop();
-        assert 2 == myStack.pop();
-        assert 3 == myStack.pop();
-        assert 4 == myStack.pop();
-        assert 5 == myStack.pop();
+        assert myStack.pop() == 1;
+        assert myStack.pop() == 2;
+        assert myStack.pop() == 3;
+        assert myStack.pop() == 4;
+        assert myStack.pop() == 5;
         assert myStack.isEmpty();
     }
 
     private static void testQueue() {
-        System.out.println(">> Testing Queue...");
+        System.out.println(">> Data Structures >> Testing Queue...");
 
         Queue<Integer> myQueue = new Queue<>(5);
         assert myQueue.isEmpty();
@@ -52,16 +54,16 @@ public class TestApp {
         myQueue.enqueue(5);
 
         assert !myQueue.isEmpty();
-        assert 1 == myQueue.dequeue();
-        assert 2 == myQueue.dequeue();
-        assert 3 == myQueue.dequeue();
-        assert 4 == myQueue.dequeue();
-        assert 5 == myQueue.dequeue();
+        assert myQueue.dequeue() == 1;
+        assert myQueue.dequeue() == 2;
+        assert myQueue.dequeue() == 3;
+        assert myQueue.dequeue() == 4;
+        assert myQueue.dequeue() == 5;
         assert myQueue.isEmpty();
     }
 
     private static void testSinglyLinkedList() {
-        System.out.println(">> Testing Singly Linked List...");
+        System.out.println(">> Data Structures >> Testing Singly Linked List...");
 
         SinglyLinkedList<Integer> myList = new SinglyLinkedList<>();
         assert myList.isEmpty();
@@ -77,16 +79,16 @@ public class TestApp {
         myList.addLast(5);
 
         assert !myList.isEmpty();
-        assert 1 == myList.removeFirst();
-        assert 2 == myList.removeFirst();
-        assert 3 == myList.removeFirst();
-        assert 5 == myList.removeLast();
-        assert 4 == myList.removeLast();
+        assert myList.removeFirst() == 1;
+        assert myList.removeFirst() == 2;
+        assert myList.removeFirst() == 3;
+        assert myList.removeLast() == 5;
+        assert myList.removeLast() == 4;
         assert myList.isEmpty();
     }
 
     private static void testCircularLinkedList() {
-        System.out.println(">> Testing Circular Linked List...");
+        System.out.println(">> Data Structures >> Testing Circular Linked List...");
 
         CircularLinkedList<Integer> myList = new CircularLinkedList<>();
         assert myList.isEmpty();
@@ -102,16 +104,16 @@ public class TestApp {
         myList.addLast(5);
 
         assert !myList.isEmpty();
-        assert 1 == myList.removeFirst();
-        assert 2 == myList.removeFirst();
-        assert 3 == myList.removeFirst();
-        assert 5 == myList.removeLast();
-        assert 4 == myList.removeLast();
+        assert myList.removeFirst() == 1;
+        assert myList.removeFirst() == 2;
+        assert myList.removeFirst() == 3;
+        assert myList.removeLast() == 5;
+        assert myList.removeLast() == 4;
         assert myList.isEmpty();
     }
 
     private static void testDoublyLinkedList() {
-        System.out.println(">> Testing Doubly Linked List...");
+        System.out.println(">> Data Structures >> Testing Doubly Linked List...");
 
         DoublyLinkedList<Integer> myList = new DoublyLinkedList<>();
         assert myList.isEmpty();
@@ -127,11 +129,20 @@ public class TestApp {
         myList.addLast(5);
 
         assert !myList.isEmpty();
-        assert 1 == myList.removeFirst();
-        assert 2 == myList.removeFirst();
-        assert 3 == myList.removeFirst();
-        assert 5 == myList.removeLast();
-        assert 4 == myList.removeLast();
+        assert myList.removeFirst() == 1;
+        assert myList.removeFirst() == 2;
+        assert myList.removeFirst() == 3;
+        assert myList.removeLast() == 5;
+        assert myList.removeLast() == 4;
         assert myList.isEmpty();
+    }
+
+    private static void testLinearSearch() {
+        System.out.println(">> Algorithms >> Testing Linear Search...");
+
+        int[] array = {00, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+
+        assert LinearSearch.search(array, 30) == 3;
+        assert LinearSearch.search(array, 100) == -1;
     }
 }
