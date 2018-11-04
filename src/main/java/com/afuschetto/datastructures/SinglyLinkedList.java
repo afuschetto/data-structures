@@ -65,7 +65,7 @@ public class SinglyLinkedList<E> {
     }
 
     public boolean isEmpty() {
-        return null == first;
+        return first == null;
     }
 
     private class Node {
