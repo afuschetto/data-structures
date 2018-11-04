@@ -1,5 +1,6 @@
 import com.afuschetto.algorithms.BinarySearch;
 import com.afuschetto.algorithms.LinearSearch;
+import com.afuschetto.algorithms.SelectionSort;
 import com.afuschetto.datastructures.*;
 
 public class TestApp {
@@ -12,6 +13,7 @@ public class TestApp {
 
         testLinearSearch();
         testBinarySearch();
+        testSelectionSort();
     }
 
     private static void testStack() {
@@ -160,5 +162,23 @@ public class TestApp {
 
         assert BinarySearch.searchRecursively(array, 30) == 3;
         assert BinarySearch.searchRecursively(array, 100) == -1;
+    }
+
+    private static void testSelectionSort() {
+        System.out.println(">> Algorithms >> Testing Selection Sort...");
+
+        int[] array = {4, 3, 1, 5, 2, 8, 7, 0, 9, 6};
+        SelectionSort.sort(array);
+
+        assert array[0] == 0;
+        assert array[1] == 1;
+        assert array[2] == 2;
+        assert array[3] == 3;
+        assert array[4] == 4;
+        assert array[5] == 5;
+        assert array[6] == 6;
+        assert array[7] == 7;
+        assert array[8] == 8;
+        assert array[9] == 9;
     }
 }
