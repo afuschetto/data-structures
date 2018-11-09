@@ -1,5 +1,12 @@
 package com.afuschetto.algorithms;
 
+/*
+ * The linear search algorithm searches key comparing it with each element of
+ * the array.
+ *
+ * Time complexity: O(n)
+ * Auxiliary space: O(1)
+ */
 public class LinearSearch {
     private LinearSearch() {
     }
