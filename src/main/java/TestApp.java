@@ -1,7 +1,4 @@
-import com.afuschetto.algorithms.BinarySearch;
-import com.afuschetto.algorithms.InsertionSort;
-import com.afuschetto.algorithms.LinearSearch;
-import com.afuschetto.algorithms.SelectionSort;
+import com.afuschetto.algorithms.*;
 import com.afuschetto.datastructures.*;
 
 public class TestApp {
@@ -16,6 +13,7 @@ public class TestApp {
         testBinarySearch();
         testSelectionSort();
         testInsertionSort();
+        testMergeSort();
     }
 
     private static void testStack() {
@@ -189,6 +187,24 @@ public class TestApp {
 
         int[] array = {4, 3, 1, 5, 2, 8, 7, 0, 9, 6};
         InsertionSort.sort(array);
+
+        assert array[0] == 0;
+        assert array[1] == 1;
+        assert array[2] == 2;
+        assert array[3] == 3;
+        assert array[4] == 4;
+        assert array[5] == 5;
+        assert array[6] == 6;
+        assert array[7] == 7;
+        assert array[8] == 8;
+        assert array[9] == 9;
+    }
+
+    private static void testMergeSort() {
+        System.out.println(">> Algorithms >> Testing Merge Sort...");
+
+        int[] array = {4, 3, 1, 5, 2, 8, 7, 0, 9, 6};
+        MergeSort.sort(array);
 
         assert array[0] == 0;
         assert array[1] == 1;
