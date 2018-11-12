@@ -1,7 +1,7 @@
 package com.afuschetto.algorithms;
 
 /*
- * The merge sort algorithm works on the principle of Divide and Conquer. It
+ * The merge sort algorithm works on the principle of divide and conquer. It
  * repeatedly break down the array into two subparts until each part consists
  * of a single element and merging those subparts in a manner that results into
  * a sorted array.
