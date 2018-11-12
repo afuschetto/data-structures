@@ -14,6 +14,7 @@ public class TestApp {
         testSelectionSort();
         testInsertionSort();
         testMergeSort();
+        testQuickSort();
     }
 
     private static void testStack() {
@@ -205,6 +206,24 @@ public class TestApp {
 
         int[] array = {4, 3, 1, 5, 2, 8, 7, 0, 9, 6};
         MergeSort.sort(array);
+
+        assert array[0] == 0;
+        assert array[1] == 1;
+        assert array[2] == 2;
+        assert array[3] == 3;
+        assert array[4] == 4;
+        assert array[5] == 5;
+        assert array[6] == 6;
+        assert array[7] == 7;
+        assert array[8] == 8;
+        assert array[9] == 9;
+    }
+
+    private static void testQuickSort() {
+        System.out.println(">> Algorithms >> Testing Quick Sort...");
+
+        int[] array = {4, 3, 1, 5, 2, 8, 7, 0, 9, 6};
+        QuickSort.sort(array);
 
         assert array[0] == 0;
         assert array[1] == 1;
