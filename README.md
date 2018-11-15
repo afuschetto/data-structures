@@ -15,3 +15,7 @@ Whereas, the available algorithms are:
 * Linear search
 * Iterative binary search
 * Recursive binary search
+* Selection sort
+* Insertion sort
+* Merge sort
+* Quick sort
