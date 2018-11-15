@@ -7,9 +7,7 @@ public class DoublyLinkedList<E> {
     private Node last = null;
 
     public void addFirst(E item) {
-        Node newNode = new Node();
-        newNode.data = item;
-        newNode.previous = null;
+        Node newNode = new Node(item);
         newNode.next = first;
 
         if (isEmpty()) {
@@ -21,10 +19,8 @@ public class DoublyLinkedList<E> {
     }
 
     public void addLast(E item) {
-        Node newNode = new Node();
-        newNode.data = item;
+        Node newNode = new Node(item);
         newNode.previous = last;
-        newNode.next = null;
 
         if (isEmpty()) {
             first = newNode;
@@ -70,8 +66,12 @@ public class DoublyLinkedList<E> {
 
     private class Node {
         E data;
-        Node previous;
-        Node next;
+        Node previous = null;
+        Node next = null;
+
+        public Node(E data) {
+            this.data = data;
+        }
 
         @Override
         public String toString() {

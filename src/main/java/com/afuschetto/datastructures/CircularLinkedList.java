@@ -7,8 +7,7 @@ public class CircularLinkedList<E> {
     private Node last = null;
 
     public void addFirst(E item) {
-        Node newNode = new Node();
-        newNode.data = item;
+        Node newNode = new Node(item);
         newNode.next = first;
 
         if (first == null) {
@@ -18,9 +17,7 @@ public class CircularLinkedList<E> {
     }
 
     public void addLast(E item) {
-        Node newNode = new Node();
-        newNode.data = item;
-        newNode.next = null;
+        Node newNode = new Node(item);
 
         if (isEmpty()) {
             first = newNode;
@@ -76,7 +73,11 @@ public class CircularLinkedList<E> {
 
     private class Node {
         E data;
-        Node next;
+        Node next = null;
+
+        public Node(E data) {
+            this.data = data;
+        }
 
         @Override
         public String toString() {
