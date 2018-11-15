@@ -8,6 +8,7 @@ public class TestApp {
         testSinglyLinkedList();
         testCircularLinkedList();
         testDoublyLinkedList();
+        testBinaryTree();
 
         testLinearSearch();
         testBinarySearch();
@@ -140,6 +141,28 @@ public class TestApp {
         assert myList.removeLast() == 5;
         assert myList.removeLast() == 4;
         assert myList.isEmpty();
+    }
+
+    private static void testBinaryTree() {
+        System.out.println(">> Data Structures >> Testing Binary Tree...");
+
+        BinaryTree<String> myTree = new BinaryTree<>();
+        assert myTree.isEmpty();
+
+        myTree.insert(6, "Six");
+        myTree.insert(3, "Three");
+        myTree.insert(5, "Five");
+        myTree.insert(1, "One");
+        myTree.insert(9, "Nine");
+        myTree.insert(7, "Seven");
+        myTree.insert(4, "Four");
+        myTree.insert(0, "Zero");
+        myTree.insert(2, "Two");
+        myTree.insert(8, "Eight");
+        assert !myTree.isEmpty();
+
+        assert myTree.findMin().equals("Zero");
+        assert myTree.findMax().equals("Nine");
     }
 
     private static void testLinearSearch() {
