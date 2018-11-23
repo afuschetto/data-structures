@@ -9,12 +9,12 @@ The available data structures are:
 * Singly-linked list
 * Circular-linked list
 * Doubly-linked list
+* Binary search tree
 
 Whereas, the available algorithms are:
 
 * Linear search
-* Iterative binary search
-* Recursive binary search
+* Binary search (both iterative and recursive versions)
 * Selection sort
 * Insertion sort
 * Merge sort
