@@ -14,10 +14,10 @@ public class QuickSort {
     }
 
     public static void sort(int[] array) {
-        sortRange(array, 0, array.length - 1);
+        sort(array, 0, array.length - 1);
     }
 
-    private static void sortRange(int[] array, int fromIdx, int toIdx) {
+    private static void sort(int[] array, int fromIdx, int toIdx) {
         if (fromIdx >= toIdx) {
             return;
         }
@@ -25,8 +25,8 @@ public class QuickSort {
         // Calculate the partitioning index
         int pIdx = partition(array, fromIdx, toIdx);
 
-        sortRange(array, fromIdx, pIdx - 1);
-        sortRange(array, pIdx + 1, toIdx);
+        sort(array, fromIdx, pIdx - 1);
+        sort(array, pIdx + 1, toIdx);
     }
 
     // Takes last element as pivot, places the pivot element at its correct

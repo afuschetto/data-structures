@@ -14,21 +14,21 @@ public class MergeSort {
     }
 
     public static void sort(int[] array) {
-        sortRange(array, 0, array.length - 1);
+        sort(array, 0, array.length - 1);
     }
 
-    private static void sortRange(int[] array, int fromIdx, int toIdx) {
+    private static void sort(int[] array, int fromIdx, int toIdx) {
         if (fromIdx >= toIdx) {
             return;
         }
 
         int midIdx = (fromIdx + toIdx) / 2;
-        sortRange(array, fromIdx, midIdx);
-        sortRange(array, midIdx + 1, toIdx);
-        mergeSortedRanges(array, fromIdx, midIdx, toIdx);
+        sort(array, fromIdx, midIdx);
+        sort(array, midIdx + 1, toIdx);
+        merge(array, fromIdx, midIdx, toIdx);
     }
 
-    private static void mergeSortedRanges(int[] array, int fromIdx, int midIdx, int toIdx) {
+    private static void merge(int[] array, int fromIdx, int midIdx, int toIdx) {
         int[] sortedArray = new int[toIdx - fromIdx + 1];
 
         int leftRangeIdx = fromIdx;

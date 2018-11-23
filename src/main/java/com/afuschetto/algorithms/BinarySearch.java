@@ -36,19 +36,19 @@ public class BinarySearch {
     }
 
     public static int searchRecursively(int[] array, int key) {
-        return searchRangeRecursively(array, key, 0, array.length - 1);
+        return searchRecursively(array, key, 0, array.length - 1);
     }
 
-    private static int searchRangeRecursively(int[] array, int key, int fromIdx, int toIdx) {
+    private static int searchRecursively(int[] array, int key, int fromIdx, int toIdx) {
         if (fromIdx > toIdx) {
             return -1;
         }
 
         int midIdx = (fromIdx + toIdx) / 2;
         if (array[midIdx] > key) {
-            return searchRangeRecursively(array, key, fromIdx, midIdx - 1);
+            return searchRecursively(array, key, fromIdx, midIdx - 1);
         } else if (array[midIdx] < key) {
-            return searchRangeRecursively(array, key, midIdx + 1, toIdx);
+            return searchRecursively(array, key, midIdx + 1, toIdx);
         } else {
             return midIdx;
         }
