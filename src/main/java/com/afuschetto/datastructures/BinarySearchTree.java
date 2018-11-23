@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class BinaryTree<E> {
+/*
+ * A binary search trees (BST) is a node-based binary tree data structure. The
+ * tree satisfies the binary search property, which states that the key in each
+ * node must be greater than or equal to any key stored in the left sub-tree,
+ * and less than or equal to any key stored in the right sub-tree.
+ *
+ * Time complexity:
+ *  - Insert: O(log(n)) in average case, O(n) in worst case
+ *  - Delete: O(log(n)) in average case, O(n) in worst case
+ *  - Search: O(log(n)) in average case, O(n) in worst case
+ */
+public class BinarySearchTree<E> {
     private Node root = null;
 
-    public void insert(int key, E value) {
+    public void add(int key, E value) {
         Node newNode = new Node(key, value);
 
         if (isEmpty()) {
@@ -28,6 +39,97 @@ public class BinaryTree<E> {
                 parNode.right = newNode;
             }
         }
+    }
+
+    public boolean remove(int key) {
+        if (isEmpty()) {
+            return false;
+        }
+
+        // Find the node to delete
+        Node parentNode = null;
+        Node currNode = root;
+        boolean leftChild = false;
+        while (currNode.key != key) {
+            parentNode = currNode;
+            if (key < currNode.key) {
+                currNode = currNode.left;
+                leftChild = true;
+            } else {
+                currNode = currNode.right;
+                leftChild = false;
+            }
+
+            // Node to delete not found
+            if (currNode == null) {
+                return false;
+            }
+        }
+
+        if (currNode.left == null && currNode.right == null) {
+            // Deleting node is a left (no children). Thus, set corresponding
+            // link of the parent to null.
+            if (parentNode == null) {
+                root = null;
+            } else if (leftChild) {
+                parentNode.left = null;
+            } else {
+                parentNode.right = null;
+            }
+        } else if (currNode.left == null) {
+            // Deleting node has one child (on right). Thus, link single child
+            // to the parent of the node to be removed.
+            if (parentNode == null) {
+                root = currNode.right;
+            } else if (leftChild) {
+                parentNode.left = currNode.right;
+            } else {
+                parentNode.right = currNode.right;
+            }
+        } else if (currNode.right == null) {
+            // Deleting node has one child (on left). Thus, link single child
+            // to the parent of the node to be removed.
+            if (parentNode == null) {
+                root = currNode.left;
+            } else if (leftChild) {
+                parentNode.left = currNode.left;
+            } else {
+                parentNode.right = currNode.left;
+            }
+        } else {
+            // Deleting node has two children. This, replace node to be deleted
+            // with the leftmost node (minimum) of right subtree.
+            Node nextNode = replaceWithNextNode(currNode);
+            if (parentNode == null) {
+                root = nextNode;
+            } else if (leftChild) {
+                parentNode.left = nextNode;
+            } else {
+                parentNode.right = nextNode;
+            }
+            // Link the next node to the left subtree.
+            nextNode.left = currNode.left;
+        }
+
+        return true;
+    }
+
+    private static Node replaceWithNextNode(Node node) {
+        // Navigate the right subtree until the leftmost node (minimum)
+        Node parentNode = node;
+        Node currNode = node.right;
+        while (currNode.left != null) {
+            parentNode = currNode;
+            currNode = currNode.left;
+        }
+
+        // Replace the node to be removed with the leftmost node
+        if (currNode != node.right) {
+            parentNode.left = currNode.right;
+            currNode.right = node.right;
+        }
+
+        return currNode;
     }
 
     public E findMin() {
@@ -68,7 +170,7 @@ public class BinaryTree<E> {
         List<List<Integer>> levels = buildLevels(root);
 
         // Calculate the box length of a single node (which includes left side,
-        // key, and right side)
+        // key, and right side).
         int widestKeyLen = getWidestKeyLen(root);
         widestKeyLen += (widestKeyLen % 2 == 0 ? 4 : 5); // Must be divisible by 2
         int nodeBoxLen = widestKeyLen * levels.get(levels.size() - 1).size();

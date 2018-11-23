@@ -8,7 +8,7 @@ public class TestApp {
         testSinglyLinkedList();
         testCircularLinkedList();
         testDoublyLinkedList();
-        testBinaryTree();
+        testBinarySearchTree();
 
         testLinearSearch();
         testBinarySearch();
@@ -143,26 +143,34 @@ public class TestApp {
         assert myList.isEmpty();
     }
 
-    private static void testBinaryTree() {
-        System.out.println(">> Data Structures >> Testing Binary Tree...");
+    private static void testBinarySearchTree() {
+        System.out.println(">> Data Structures >> Testing Binary Search Tree...");
 
-        BinaryTree<String> myTree = new BinaryTree<>();
+        BinarySearchTree<String> myTree = new BinarySearchTree<>();
         assert myTree.isEmpty();
 
-        myTree.insert(6, "Six");
-        myTree.insert(3, "Three");
-        myTree.insert(5, "Five");
-        myTree.insert(1, "One");
-        myTree.insert(9, "Nine");
-        myTree.insert(7, "Seven");
-        myTree.insert(4, "Four");
-        myTree.insert(0, "Zero");
-        myTree.insert(2, "Two");
-        myTree.insert(8, "Eight");
+        myTree.add(6, "Six");
+        myTree.add(3, "Three");
+        myTree.add(5, "Five");
+        myTree.add(1, "One");
+        myTree.add(9, "Nine");
+        myTree.add(7, "Seven");
+        myTree.add(4, "Four");
+        myTree.add(0, "Zero");
+        myTree.add(2, "Two");
+        myTree.add(8, "Eight");
         assert !myTree.isEmpty();
 
         assert myTree.findMin().equals("Zero");
         assert myTree.findMax().equals("Nine");
+
+        assert myTree.remove(0);
+        assert myTree.remove(9);
+        assert !myTree.remove(10);
+        assert myTree.remove(3);
+
+        assert myTree.findMin().equals("One");
+        assert myTree.findMax().equals("Eight");
     }
 
     private static void testLinearSearch() {
