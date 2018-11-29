@@ -169,8 +169,8 @@ public class BinarySearchTree<E> {
         // represented by null to obtain a full binary tree.
         List<List<Integer>> levels = buildLevels(root);
 
-        // Calculate the box length of a single node (which includes left side,
-        // key, and right side).
+        // Calculate the box length for a single node (which includes left
+        // side, key, and right side).
         int widestKeyLen = getWidestKeyLen(root);
         widestKeyLen += (widestKeyLen % 2 == 0 ? 4 : 5); // Must be divisible by 2
         int nodeBoxLen = widestKeyLen * levels.get(levels.size() - 1).size();
