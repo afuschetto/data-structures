@@ -9,6 +9,7 @@ public class TestApp {
         testCircularLinkedList();
         testDoublyLinkedList();
         testBinarySearchTree();
+        testBinaryHeap();
 
         testLinearSearch();
         testBinarySearch();
@@ -171,6 +172,30 @@ public class TestApp {
 
         assert myTree.findMin().equals("One");
         assert myTree.findMax().equals("Eight");
+    }
+
+    private static void testBinaryHeap() {
+        System.out.println(">> Data Structures >> Testing Binary Heap...");
+
+        BinaryHeap myHeap = new BinaryHeap(5);
+        assert myHeap.isEmpty();
+        assert !myHeap.isFull();
+
+        myHeap.insert(1);
+        myHeap.insert(2);
+        myHeap.insert(3);
+        myHeap.insert(4);
+        myHeap.insert(5);
+        assert !myHeap.isEmpty();
+        assert myHeap.isFull();
+
+        myHeap.remove();
+        assert !myHeap.isEmpty();
+        assert !myHeap.isFull();
+
+        myHeap.insert(6);
+        assert !myHeap.isEmpty();
+        assert myHeap.isFull();
     }
 
     private static void testLinearSearch() {
