@@ -3,13 +3,11 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class Stack<E> {
-    private int size;
     private E dataArray[];
     private int top = -1;
 
-    public Stack(int size) {
-        this.size = size;
-        dataArray = (E[]) new Object[size];
+    public Stack(int capacity) {
+        dataArray = (E[]) new Object[capacity];
     }
 
     public void push(E item) {
@@ -33,6 +31,6 @@ public class Stack<E> {
     }
 
     public boolean isFull() {
-        return top == (size - 1);
+        return top == (dataArray.length - 1);
     }
 }

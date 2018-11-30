@@ -3,15 +3,13 @@ package com.afuschetto.datastructures;
 import java.util.NoSuchElementException;
 
 public class Queue<E> {
-    private int size;
     private E dataArray[];
     private int front = -1;
     private int rear = -1;
     private int nItems = 0;
 
-    public Queue(int size) {
-        this.size = size;
-        dataArray = (E[]) new Object[size];
+    public Queue(int capacity) {
+        dataArray = (E[]) new Object[capacity];
     }
 
     public void enqueue(E item) {
@@ -19,7 +17,7 @@ public class Queue<E> {
             throw new IndexOutOfBoundsException("Full queue");
         }
 
-        front = (front + 1) % size;
+        front = (front + 1) % dataArray.length;
         dataArray[front] = item;
         ++nItems;
     }
@@ -29,7 +27,7 @@ public class Queue<E> {
             throw new NoSuchElementException("Empty queue");
         }
 
-        rear = (rear + 1) % size;
+        rear = (rear + 1) % dataArray.length;
         E item = dataArray[rear];
         --nItems;
         return item;
@@ -40,6 +38,6 @@ public class Queue<E> {
     }
 
     public boolean isFull() {
-        return nItems == size;
+        return nItems == dataArray.length;
     }
 }
