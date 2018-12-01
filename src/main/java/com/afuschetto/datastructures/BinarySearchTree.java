@@ -165,9 +165,13 @@ public class BinarySearchTree<E> {
     }
 
     public void print() {
+        if (isEmpty()) {
+            return;
+        }
+
         // Build a list of keys grouped by levels. Every missing node is
         // represented by null to obtain a full binary tree.
-        List<List<Integer>> levels = buildLevels(root);
+        List<List<Integer>> levels = buildLevels();
 
         // Calculate the box length for a single node (which includes left
         // side, key, and right side).
@@ -185,7 +189,7 @@ public class BinarySearchTree<E> {
         }
     }
 
-    private static List<List<Integer>> buildLevels(Node root) {
+    private List<List<Integer>> buildLevels() {
         List<List<Integer>> levels = new ArrayList<>(); // Keys grouped by levels
         List<Node> currNodes = new ArrayList<>(); // Nodes of current level
 
