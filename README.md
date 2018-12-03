@@ -10,6 +10,7 @@ The available data structures are:
 * Circular-linked list
 * Doubly-linked list
 * Binary search tree
+* Binary heap
 
 Whereas, the available algorithms are:
 
