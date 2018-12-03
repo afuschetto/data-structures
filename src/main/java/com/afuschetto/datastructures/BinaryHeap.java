@@ -7,8 +7,8 @@ import java.util.List;
  * A binary heap is a node-based binary tree data structure, with two
  * additional constraints: it is a complete tree (all levels are fully filled
  * except possibly the last one that is filled from left to right) and the key
- * stored in each node is either greater than or equal, or less than or equal,
- * to the keys in the node's children.
+ * stored in each node is either greater than or equal (max heap), or less than
+ * or equal (min heap), to the keys in the node's children.
  *
  * Time complexity:
  *  - Insert: O(log(n))
@@ -17,11 +17,10 @@ import java.util.List;
  */
 public class BinaryHeap {
     private Node heap[];
-    private int size;
+    private int size = 0;
 
     public BinaryHeap(int capacity) {
         heap = new Node[capacity];
-        size = 0;
     }
 
     public void insert(int item) {
