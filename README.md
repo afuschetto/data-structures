@@ -11,6 +11,7 @@ The available data structures are:
 * Doubly-linked list
 * Binary search tree
 * Binary heap
+* Hash table
 
 Whereas, the available algorithms are:
 
