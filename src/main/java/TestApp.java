@@ -10,6 +10,7 @@ public class TestApp {
         testDoublyLinkedList();
         testBinarySearchTree();
         testBinaryHeap();
+        testHashTable();
 
         testLinearSearch();
         testBinarySearch();
@@ -196,6 +197,25 @@ public class TestApp {
         myHeap.insert(6);
         assert !myHeap.isEmpty();
         assert myHeap.isFull();
+    }
+
+    private static void testHashTable() {
+        System.out.println(">> Data Structures >> Testing Hash Table...");
+
+        HashTable myTable = new HashTable(5);
+        assert myTable.isEmpty();
+
+        myTable.insert("One");
+        myTable.insert("Two");
+        myTable.insert("Three");
+        myTable.insert("Four");
+        myTable.insert("Five");
+        myTable.insert("Six");
+        assert !myTable.isEmpty();
+
+        assert myTable.find("Three");
+        assert myTable.find("Six");
+        assert !myTable.find("Seven");
     }
 
     private static void testLinearSearch() {
