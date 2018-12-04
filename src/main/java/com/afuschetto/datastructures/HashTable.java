@@ -1,5 +1,8 @@
 package com.afuschetto.datastructures;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 /*
  * A hash table (or hash map) is a data structure used to implement an
  * associative array, a structure that can map keys to values. It uses a hash
@@ -100,5 +103,11 @@ public class HashTable {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public void print() {
+        System.out.print("[");
+        System.out.print(Arrays.stream(table).filter(x -> x != null).collect(Collectors.joining(", ")));
+        System.out.println("]");
     }
 }
