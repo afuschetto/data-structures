@@ -11,6 +11,7 @@ public class TestApp {
         testBinarySearchTree();
         testBinaryHeap();
         testHashTable();
+        testGraph();
 
         testLinearSearch();
         testBinarySearch();
@@ -216,6 +217,33 @@ public class TestApp {
         assert myTable.find("Three");
         assert myTable.find("Six");
         assert !myTable.find("Seven");
+    }
+
+    private static void testGraph() {
+        System.out.println(">> Data Structures >> Testing Graph...");
+
+        Graph myGraph = new Graph(Graph.Orientation.DIRECTED, 5);
+        assert myGraph.isEmpty();
+        assert !myGraph.isFull();
+
+        myGraph.addVertex("One");
+        myGraph.addVertex("Two");
+        myGraph.addVertex("Three");
+        myGraph.addVertex("Four");
+        myGraph.addVertex("Five");
+        assert !myGraph.isEmpty();
+        assert myGraph.isFull();
+
+        myGraph.addEdge("One", "Two");
+        myGraph.addEdge("One", "Three");
+        myGraph.addEdge("One", "Five");
+        myGraph.addEdge("Two", "Three");
+        myGraph.addEdge("Two", "Four");
+        myGraph.addEdge("Three", "One");
+        myGraph.addEdge("Three", "Two");
+        myGraph.addEdge("Three", "Five");
+        assert !myGraph.isEmpty();
+        assert myGraph.isFull();
     }
 
     private static void testLinearSearch() {
