@@ -12,6 +12,7 @@ The available data structures are:
 * Binary search tree
 * Binary heap
 * Hash table
+* Graph (both directed and undirected)
 
 Whereas, the available algorithms are:
 
